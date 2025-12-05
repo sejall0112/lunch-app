@@ -7,7 +7,7 @@ on:
     branches: [ "main" ] # Trigger on pull requests to the main branch
 
 env:
-  DOCKER_IMAGE: janvisen05/github-pipeline-run1 # Replace with your Docker Hub username and repository name
+  DOCKER_IMAGE: sejall0112/lunch-app # Replace with your Docker Hub username and repository name
 
 jobs:
   build_and_push:
@@ -23,8 +23,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }} # Use a GitHub secret for Docker Hub username
-          password: ${{ secrets.DOCKEN_TOKEN }} # Use a GitHub secret for Docker Hub token
+          username: ${{ secrets.DOCKERHUB_USERNAME }} # Use a GitHub secret for Docker Hub username
+          password: ${{ secrets.DOCKERHUB_TOKEN }} # Use a GitHub secret for Docker Hub token
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
